@@ -76,7 +76,7 @@ export const validatePromo = async (req: Request, res: Response) => {
   const { code } = req.body;
   
   // Simple promo validation - you can expand this
-  const validPromos = {
+  const validPromos: Record<string, { discount: string }> = {
     'SAVE10': { discount: '10%' },
     'FLAT100': { discount: '₹100' }
   };

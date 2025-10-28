@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/controllers/experienceController.ts","./src/models/Booking.ts","./src/models/Experience.ts","./src/routes/index.ts","./src/utils/sampleData.ts","./src/utils/seeder.ts"],"version":"5.9.3"}

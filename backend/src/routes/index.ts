@@ -4,13 +4,16 @@ import {
   getExperienceDetails,
   createBooking,
   validatePromo
-} from '../controllers/experienceController';
+} from '../controllers/experienceController.js';
 
 const router = express.Router();
 
 router.get('/experiences', getExperiences);
+
 router.get('/experiences/:id', getExperienceDetails);
+
 router.post('/bookings', createBooking);
+
 router.post('/promo/validate', validatePromo);
 
 export default router;

@@ -1,11 +1,14 @@
 import mongoose from 'mongoose';
 import Experience from '../models/Experience.js';
 import { sampleExperiences } from './sampleData.js';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const seedDatabase = async () => {
   try {
     // Connect to MongoDB
-    await mongoose.connect(MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URI!);
     
     // Clear existing data
     await Experience.deleteMany({});
