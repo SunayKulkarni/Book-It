@@ -7,7 +7,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "seed": "npm run build && node dist/utils/seeder.js",
-    "build": "tsc -b",
+    "build": "npm install &&tsc -b",
     "start": "node dist/app.js",
     "dev": "npm run build && npm run start"
   },
