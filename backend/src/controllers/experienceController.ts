@@ -26,10 +26,11 @@ export const getExperienceDetails = async (req: Request, res: Response) => {
 
 //  POST /bookings
 export const createBooking = async (req: Request, res: Response) => {
+
   try {
     const { experienceId, slotId, userEmail, userName, promoCode } = req.body;
 
-    // 🔒 Step 1: Find experience
+    // Find experience
     const experience = await Experience.findById(experienceId);
     if (!experience)
       return res.status(404).json({ message: "Experience not found" });
@@ -38,7 +39,7 @@ export const createBooking = async (req: Request, res: Response) => {
     if (!slot)
       return res.status(404).json({ message: "Slot not found" });
 
-    // 🔒 Step 2: Prevent double-booking safely
+    //  Prevent double-booking 
     if (slot.booked >= slot.capacity) {
       return res.status(400).json({ message: "Slot is already full" });
     }
@@ -50,15 +51,15 @@ export const createBooking = async (req: Request, res: Response) => {
         .json({ message: "You already booked this slot" });
     }
 
-    // 💰 Step 3: Apply promo
+    //  Apply promo
     let totalPrice = experience.price;
     if (promoCode === "SAVE10") totalPrice *= 0.9;
     if (promoCode === "FLAT100") totalPrice -= 100;
 
-    // 🧾 Step 4: Generate unique refId
+    //  Generate unique refId
     const refId = "BK" + Math.random().toString(36).substr(2, 6).toUpperCase();
 
-    // Step 5: Create booking and update slot
+    // Create booking and update slot
     const booking = new Booking({
       experienceId,
       slotId,

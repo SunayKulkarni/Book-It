@@ -11,7 +11,7 @@ export default function Success() {
 
   return (
     <div className="min-h-screen bg-white flex flex-col">
-      {/* ✅ Navbar */}
+      {/* Navbar */}
       <header className="bg-white shadow-sm border-b sticky top-0 z-10">
         <div className="px-8 py-4 flex justify-between items-center">
           <div
@@ -34,7 +34,7 @@ export default function Success() {
         </div>
       </header>
 
-      {/* ✅ Success Content */}
+      {/* Success Content */}
       <div className="flex flex-col items-center justify-center flex-grow">
         <CheckCircle className="w-20 h-20 text-green-500 mb-6" />
         <h1 className="text-2xl font-semibold text-gray-800 mb-2">
