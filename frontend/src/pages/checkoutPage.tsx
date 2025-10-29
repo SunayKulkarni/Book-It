@@ -29,7 +29,7 @@ export default function Checkout() {
 
   const handleApplyPromo = async () => {
   try {
-    const res = await axios.post(`${process.env.VITE_BACKEND_URL}/api/promo/validate`, {
+    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/promo/validate`, {
       code: promo,
     });
 
@@ -62,7 +62,7 @@ export default function Checkout() {
   }
 
   try {
-    const res = await axios.post(`${process.env.VITE_BACKEND_URL}/api/bookings`, {
+    const res = await axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/bookings`, {
       experienceId: experience._id,
       slotId: slot._id,
       userEmail: email,

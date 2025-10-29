@@ -12,7 +12,7 @@ export default function ExperienceDetails() {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    axios.get(`${process.env.VITE_BACKEND_URL}/api/experiences/${id}`).then((res) => {
+    axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/experiences/${id}`).then((res) => {
       setExperience(res.data);
     });
   }, [id]);
