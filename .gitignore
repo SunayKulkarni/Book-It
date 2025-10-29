@@ -1,0 +1,49 @@
+# ────────────────
+#  Root Level
+# ────────────────
+node_modules/
+dist/
+build/
+.env
+.env.*
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+*.log
+*.local.json
+*.swp
+
+# ────────────────
+#  Frontend (Vite + React)
+# ────────────────
+frontend/node_modules/
+frontend/dist/
+frontend/build/
+frontend/.env
+frontend/.env.*
+frontend/.vite/
+frontend/npm-debug.log*
+frontend/yarn-debug.log*
+frontend/yarn-error.log*
+frontend/pnpm-debug.log*
+
+# ────────────────
+#  Backend (Express + TS)
+# ────────────────
+backend/node_modules/
+backend/dist/
+backend/.env
+backend/.env.*
+backend/npm-debug.log*
+backend/yarn-debug.log*
+backend/yarn-error.log*
+backend/pnpm-debug.log*
+
+# ────────────────
+#  Miscellaneous
+# ────────────────
+*.tsbuildinfo
+coverage/
+.tmp/
+.cache/
