@@ -2,9 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import MainLogo from "../icons/mainLogo";
-import dotenv from "dotenv";
-import process from "process";
-dotenv.config();
+
 
 export default function Checkout() {
   const { state } = useLocation();
