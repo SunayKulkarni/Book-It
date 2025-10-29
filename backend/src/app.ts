@@ -1,36 +1,42 @@
-import express from 'express';
-import mongoose from 'mongoose';
-import cors from 'cors';
-import router from './routes/index.js';
-import dotenv from 'dotenv';
+import express from "express";
+import mongoose from "mongoose";
+import cors from "cors";
+import router from "./routes/index.js";
+import dotenv from "dotenv";
 
 dotenv.config();
 
 const app = express();
 
-// ✅ Proper CORS setup
+const allowedOrigins = [
+  "http://localhost:5173",
+  "https://book-it-sage-eight.vercel.app", 
+];
+
 app.use(
   cors({
-    origin: [
-      process.env.FRONTEND_URL!, // your deployed frontend
-      "http://localhost:5173",  // local dev frontend
-    ],
-    methods: ["GET", "POST", "PUT", "DELETE"],
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type", "Authorization"],
   })
 );
 
 app.use(express.json());
-app.use('/api', router);
-
+app.use("/api", router);
 
 mongoose
   .connect(process.env.MONGODB_URI!)
-  .then(() => console.log('Connected to MongoDB'))
-  .catch(err => console.error('MongoDB connection error:', err));
+  .then(() => console.log(" Connected to MongoDB"))
+  .catch((err) => console.error(" MongoDB connection error:", err));
 
 const PORT = process.env.PORT || 5000;
-
 app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
