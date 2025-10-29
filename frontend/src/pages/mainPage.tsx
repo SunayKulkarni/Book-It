@@ -24,7 +24,7 @@ export default function Home() {
   useEffect(() => {
     const fetchExperiences = async () => {
       try {
-        const res = await axios.get(`${process.env.BACKEND_URL}/api/experiences`);
+        const res = await axios.get(`${process.env.VITE_BACKEND_URL}/api/experiences`);
         setExperiences(res.data);
         setFiltered(res.data);
       } catch (err) {
