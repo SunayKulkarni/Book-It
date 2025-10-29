@@ -13,7 +13,8 @@ const bookingSchema = new mongoose.Schema({
   userEmail: { type: String, required: true },
   userName: { type: String, required: true },
   totalPrice: { type: Number, required: true },
-  promoCode: { type: String }
+  promoCode: { type: String },
+  refId: { type: String, unique: true }
 }, { timestamps: true });
 
 export default mongoose.model('Booking', bookingSchema);

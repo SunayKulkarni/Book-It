@@ -1,14 +1,14 @@
-import type { Request, Response } from 'express';
-import Experience from '../models/Experience.js';
-import Booking from '../models/Booking.js';
+import type { Request, Response } from "express";
+import Experience from "../models/Experience.js";
+import Booking from "../models/Booking.js";
 
 // GET /experiences
 export const getExperiences = async (req: Request, res: Response) => {
   try {
-    const experiences = await Experience.find().select('-slots');
+    const experiences = await Experience.find().select("-slots");
     res.json(experiences);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+  } catch {
+    res.status(500).json({ message: "Server error" });
   }
 };
 
@@ -16,74 +16,79 @@ export const getExperiences = async (req: Request, res: Response) => {
 export const getExperienceDetails = async (req: Request, res: Response) => {
   try {
     const experience = await Experience.findById(req.params.id);
-    if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
-    }
+    if (!experience)
+      return res.status(404).json({ message: "Experience not found" });
     res.json(experience);
-  } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+  } catch {
+    res.status(500).json({ message: "Server error" });
   }
 };
 
-// POST /bookings
+//  POST /bookings
 export const createBooking = async (req: Request, res: Response) => {
   try {
     const { experienceId, slotId, userEmail, userName, promoCode } = req.body;
 
+    // 🔒 Step 1: Find experience
     const experience = await Experience.findById(experienceId);
-    if (!experience) {
-      return res.status(404).json({ message: 'Experience not found' });
-    }
+    if (!experience)
+      return res.status(404).json({ message: "Experience not found" });
 
     const slot = experience.slots.id(slotId);
-    if (!slot) {
-      return res.status(404).json({ message: 'Slot not found' });
-    }
+    if (!slot)
+      return res.status(404).json({ message: "Slot not found" });
 
+    // 🔒 Step 2: Prevent double-booking safely
     if (slot.booked >= slot.capacity) {
-      return res.status(400).json({ message: 'Slot is fully booked' });
+      return res.status(400).json({ message: "Slot is already full" });
     }
 
-    // Calculate price (apply promo if valid)
+    const existingBooking = await Booking.findOne({ slotId, userEmail });
+    if (existingBooking) {
+      return res
+        .status(400)
+        .json({ message: "You already booked this slot" });
+    }
+
+    // 💰 Step 3: Apply promo
     let totalPrice = experience.price;
-    if (promoCode) {
-      // Simple promo logic - you can expand this
-      if (promoCode === 'SAVE10') totalPrice *= 0.9;
-      if (promoCode === 'FLAT100') totalPrice -= 100;
-    }
+    if (promoCode === "SAVE10") totalPrice *= 0.9;
+    if (promoCode === "FLAT100") totalPrice -= 100;
 
-    // Create booking and update slot capacity
+    // 🧾 Step 4: Generate unique refId
+    const refId = "BK" + Math.random().toString(36).substr(2, 6).toUpperCase();
+
+    // Step 5: Create booking and update slot
     const booking = new Booking({
       experienceId,
       slotId,
       userEmail,
       userName,
       totalPrice,
-      promoCode
+      promoCode,
+      refId,
     });
 
     slot.booked += 1;
     await Promise.all([booking.save(), experience.save()]);
 
-    res.status(201).json(booking);
+    res.status(201).json({ message: "Booking confirmed", refId });
   } catch (error) {
-    res.status(500).json({ message: 'Server error' });
+    console.error("Booking Error:", error);
+    res.status(500).json({ message: "Server error" });
   }
 };
 
 // POST /promo/validate
 export const validatePromo = async (req: Request, res: Response) => {
   const { code } = req.body;
-  
-  // Simple promo validation - you can expand this
-  const validPromos: Record<string, { discount: string }> = {
-    'SAVE10': { discount: '10%' },
-    'FLAT100': { discount: '₹100' }
+
+  const validPromos: Record<string, { type: "percent" | "flat"; value: number }> = {
+    SAVE10: { type: "percent", value: 10 },
+    FLAT100: { type: "flat", value: 100 },
   };
 
-  if (validPromos[code]) {
-    res.json({ valid: true, ...validPromos[code] });
-  } else {
-    res.status(400).json({ valid: false, message: 'Invalid promo code' });
-  }
+  const promo = validPromos[code];
+  if (promo) return res.json({ valid: true, ...promo });
+  res.status(400).json({ valid: false, message: "Invalid promo code" });
 };

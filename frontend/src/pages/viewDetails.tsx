@@ -12,7 +12,7 @@ export default function ExperienceDetails() {
   const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/experiences/${id}`).then((res) => {
+    axios.get(`${process.env.BACKEND_URL}/api/experiences/${id}`).then((res) => {
       setExperience(res.data);
     });
   }, [id]);
@@ -24,13 +24,21 @@ export default function ExperienceDetails() {
   );
 
   const handleConfirm = () => {
-    if (!selectedDate || !selectedSlot)
-      return alert("Please select a date and time slot");
-   
-    navigate('/checkout',{
-      state: { experience, date: selectedDate, time: selectedSlot, quantity, total },
-    })
-  };
+  if (!selectedDate || !selectedSlot)
+    return alert("Please select a date and time slot");
+ 
+  navigate('/checkout', {
+    state: { 
+      experience, 
+      date: selectedDate, 
+      slot: selectedSlot,  // Pass the whole slot object
+      quantity, 
+      total,
+      subtotal,
+      taxes
+    },
+  });
+};
 
   const subtotal = experience.price * quantity;
   const taxes = 59;
