@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/mainPage";
-import ExperienceDetails from "./pages/viewDetails"; // create this page
+import ExperienceDetails from "./pages/viewDetails"; 
+import Checkout from "./pages/checkoutPage";
 
 export default function App() {
   return (
@@ -9,6 +10,7 @@ export default function App() {
        
         <Route path="/" element={<Home />} />
         <Route path="/experiences/:id" element={<ExperienceDetails />} />
+        <Route path="/checkout" element={<Checkout/>}/>
       </Routes>
     </BrowserRouter>
   );

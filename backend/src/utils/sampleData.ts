@@ -6,21 +6,35 @@ export const sampleExperiences = [
     image: "https://images.unsplash.com/photo-1635283270352-d820f3018d91?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374",
     location: "Calangute, Goa",
     duration: 4,
-    slots: [
-      {
-        date: new Date("2024-01-15"),
-        startTime: "09:00",
-        endTime: "13:00",
-        capacity: 20,
-        booked: 0
-      },
-      {
-        date: new Date("2024-01-16"),
-        startTime: "14:00",
-        endTime: "18:00",
-        capacity: 20,
-        booked: 0
-      }
+     slots: [
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
   {
@@ -31,20 +45,34 @@ export const sampleExperiences = [
     location: "Madikeri, Coorg",
     duration: 3,
     slots: [
-      {
-        date: new Date("2024-01-20"),
-        startTime: "10:00",
-        endTime: "13:00",
-        capacity: 15,
-        booked: 0
-      },
-      {
-        date: new Date("2024-01-21"),
-        startTime: "14:00",
-        endTime: "17:00",
-        capacity: 15,
-        booked: 0
-      }
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
   {
@@ -55,20 +83,34 @@ export const sampleExperiences = [
     location: "Jaipur, Rajasthan",
     duration: 3,
     slots: [
-      {
-        date: new Date("2024-01-25"),
-        startTime: "08:00",
-        endTime: "11:00",
-        capacity: 12,
-        booked: 0
-      },
-      {
-        date: new Date("2024-01-26"),
-        startTime: "12:00",
-        endTime: "15:00",
-        capacity: 12,
-        booked: 0
-      } 
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
 
@@ -80,19 +122,33 @@ export const sampleExperiences = [
     location: "Mangalore, Karnataka",
     duration: 3,
     slots: [
-      {
-        date: new Date("2024-01-25"),
-        startTime: "08:00",
-        endTime: "11:00",
-        capacity: 12,
-        booked: 0
-      },
-      {
-    date: new Date("2025-11-01"),
-    startTime: "06:00",
-    endTime: "08:00",
-    capacity: 15,
-    booked: 8
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
   }
     ]
   },
@@ -103,21 +159,35 @@ export const sampleExperiences = [
     image: "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1470&q=80",
     location: "Udupi, Karnataka",
     duration: 2,
-    slots: [
-      {
-        date: new Date("2024-02-10"),
-        startTime: "07:00",
-        endTime: "09:00",
-        capacity: 10,
-        booked: 2
-      },
-      {
-        date: new Date("2025-11-01"),
-        startTime: "06:00",
-        endTime: "08:00",
-        capacity: 15,
-        booked: 8
-      }
+     slots: [
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
   {
@@ -127,21 +197,35 @@ export const sampleExperiences = [
     image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1470&q=80",
     location: "Coorg, Karnataka",
     duration: 4,
-    slots: [
-      {
-        date: new Date("2024-02-15"),
-        startTime: "09:00",
-        endTime: "13:00",
-        capacity: 15,
-        booked: 5
-      },
-      {
-        date: new Date("2025-11-01"),
-        startTime: "06:00",
-        endTime: "08:00",
-        capacity: 15,
-        booked: 8
-      }
+     slots: [
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
   {
@@ -152,20 +236,34 @@ export const sampleExperiences = [
     location: "Bangalore, Karnataka",
     duration: 1,
     slots: [
-      {
-        date: new Date("2024-03-05"),
-        startTime: "04:30",
-        endTime: "06:30",
-        capacity: 20,
-        booked: 10
-      },
-      {
-        date: new Date("2025-11-01"),
-        startTime: "06:00",
-        endTime: "08:00",
-        capacity: 15,
-        booked: 8
-      }
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   },
   {
@@ -176,20 +274,34 @@ export const sampleExperiences = [
     location: "Sunderban, West Bengal",
     duration: 5,
     slots: [
-      {
-        date: new Date("2024-02-18"),
-        startTime: "12:00",
-        endTime: "17:00",
-        capacity: 25,
-        booked: 8
-      },
-      {
-        date: new Date("2025-11-01"),
-        startTime: "06:00",
-        endTime: "08:00",
-        capacity: 15,
-        booked: 8
-      }
+       {
+    date: new Date("2024-03-05"),
+    startTime: "04:30",
+    endTime: "06:30",
+    capacity: 20,
+    booked: 10
+  },
+  {
+    date: new Date("2024-03-06"),
+    startTime: "07:00",
+    endTime: "09:00",
+    capacity: 20,
+    booked: 15
+  },
+  {
+    date: new Date("2024-03-05"),
+    startTime: "10:00",
+    endTime: "12:00",
+    capacity: 20,
+    booked: 5
+  },
+  {
+    date: new Date("2024-03-08"),
+    startTime: "16:00",
+    endTime: "18:00",
+    capacity: 20,
+    booked: 20  
+  }
     ]
   }
 
